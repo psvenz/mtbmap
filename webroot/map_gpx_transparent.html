@@ -1,0 +1,132 @@
+<html>
+    <head>
+        <title>MTBmap.se</title>
+	<link rel="stylesheet" href="style.css" type="text/css">        
+	<script src="OpenLayers-2.11/OpenLayers.js"></script>
+        <script src="http://openstreetmap.org/openlayers/OpenStreetMap.js"></script>
+        <script type="text/javascript">
+            var lat=60;
+            var lon=14;
+            var zoom=6;
+            var map;
+ 
+
+	function getUrlVars() {
+    		var vars = {};
+    		var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function(m,key,value) {
+        	vars[key] = value;
+    	});
+    	return vars;
+	}
+
+            function init(){
+                map = new OpenLayers.Map ("map", {
+                controls:[
+                    new OpenLayers.Control.Permalink(),
+                    new OpenLayers.Control.ScaleLine(),
+                    new OpenLayers.Control.Navigation(),
+                    new OpenLayers.Control.PanZoomBar(),
+                    new OpenLayers.Control.LayerSwitcher(),
+                    new OpenLayers.Control.Attribution()],
+                    maxExtent: new OpenLayers.Bounds(-20037508.34,-20037508.34,20037508.34,20037508.34),
+                    maxResolution: 156543.0399,
+                    numZoomLevels: 16,
+                    units: 'm',
+                    projection: new OpenLayers.Projection("EPSG:900913"),
+                    displayProjection: new OpenLayers.Projection("EPSG:4326")
+                } );
+ 
+
+
+  		var newLayer2 = new OpenLayers.Layer.OSM("MTB MAP", "http://tiles.mtbmap.se/${z}/${x}/${y}.png", {numZoomLevels: 17, attribution:"Rendered with Maperitive"});
+ 		
+		newLayer2.setIsBaseLayer(true);
+		map.addLayer(newLayer2);
+
+
+                layerMapnik = new OpenLayers.Layer.OSM.Mapnik("Mapnik");
+                map.addLayer(layerMapnik);
+
+
+			// Add the Layer with the GPX Track
+
+//			var lgpx = new OpenLayers.Layer.Vector("GPX overlay", {
+			var lgpx = new OpenLayers.Layer.Vector(decodeURIComponent(getUrlVars()["gpxurl"]), {
+				strategies: [new OpenLayers.Strategy.Fixed()],
+				protocol: new OpenLayers.Protocol.HTTP({
+//					url: "http://mtbmap.se/overlays/lugnet_lang_2012-07-29_12-17-34.gpx",
+					url: decodeURIComponent(getUrlVars()["gpxurl"]),
+					format: new OpenLayers.Format.GPX()
+				}),
+				style: {strokeColor: "#6666ff", strokeWidth: 30, strokeOpacity: 0.2},
+				projection: new OpenLayers.Projection("EPSG:4326")
+			});
+			map.addLayer(lgpx);
+
+                layerTilesAtHome = new OpenLayers.Layer.OSM.Osmarender("Osmarender", {numZoomLevels: 9});
+		layerTilesAtHome.setIsBaseLayer(false);    
+
+                map.addLayer(layerTilesAtHome);
+                layerCycleMap = new OpenLayers.Layer.OSM.CycleMap("CycleMap");
+                map.addLayer(layerCycleMap);
+
+
+                layerHillMap= new OpenLayers.Layer.OSM("hill", "http://toolserver.org/~cmarqu/hill/${z}/${x}/${y}.png", {numZoomLevels: 17});
+	
+		layerHillMap.setIsBaseLayer(false);                
+		map.addLayer(layerHillMap);
+
+                var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), new OpenLayers.Projection("EPSG:900913"));
+ 
+//                map.setCenter (lonLat, zoom);
+ 
+
+
+
+ 
+ 
+
+
+
+
+ 
+
+
+            }
+        </script>
+    </head>
+        <body onload="init()">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div id="left">
+	<div id="introduction">
+	<b>MTBmap.se</b>
+	</div>
+<p>
+<img src="legend.png">
+<br>MTB map based on openstreetmap data. <br>
+<b>Known limitations:</b><br>
+Coverage: Sweden<br>
+Zoom levels: 9-16<br>
+Update interval: ~monthly
+<br>
+For more information about mtb tagging, see <a href="http://wiki.openstreetmap.org/wiki/Key:mtb:scale">mtb:scale</a> and <a href="http://wiki.openstreetmap.org/wiki/Mountainbike">mountainbike</a> on openstreetmap wiki.
+<br>
+
+<br>Made by <a href="http://www.openstreetmap.org/user/zvenzzon">zvenzzon</a>.
+<div class="fb-like" data-href="http://www.facebook.com/MTBmap.se" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
+</div>
+<div id="map">
+	<noscript>
+			<h2>Javascript not found</h2>
+			<p>This application requires Javascript. Please enable it to view the map.</p>
+	</noscript>
+    
+</body>
+</html>
