@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet OSMTileMachine Example</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">	
+	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+
+	 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js">
+	</script>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+
+	<script>
+		var map = L.map('map');
+
+		L.tileLayer('http://tiles.mtbmap.se/{z}/{x}/{y}.png', {
+			minZoom: 0, maxZoom: 15,
+			attribution: 'Map data © OpenStreetMap contributors. Generated with <a href="http://maperitive.net">Maperitive</a> using <a href="https://github.com/psvenz/OSMTileMachine">OSMTileMachine</a>'
+		}).addTo(map);
+
+
+		function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+			L.circle(e.latlng, radius).addTo(map);		}
+
+		function onLocationError(e) {
+		}
+
+		map.on('locationfound', onLocationFound);
+		map.on('locationerror', onLocationError);
+		map.setView([50.123332, 10.1233], 3);
+		map.locate({setView: true, maxZoom: 15});
+
+	</script>
+</body>
+</html>
