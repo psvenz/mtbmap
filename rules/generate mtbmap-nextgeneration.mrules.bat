@@ -1,10 +1,11 @@
 @echo off
-set "gravelsurface=@isOneOf(surface, unpaved, gravel, ground, dirt, grass, sand, compacted, fine_gravel, earth, mud)"
+set "softsurface=@isOneOf(surface, unpaved, gravel, ground, dirt, grass, sand, compacted, fine_gravel, earth, mud)"
+set "hardsurface=@isOneOf(surface, paved, asphalt, concrete)"
 call :sub >mtbmap-nextgeneration.mrules
 exit /b
 :bikeway
 echo 			define
-echo 				min-zoom : 15
+echo 				min-zoom : 13
 echo 				line-color : #3333dd
 echo 				line-width : 13:1;16:2
 echo 				line-opacity : 1
@@ -13,7 +14,7 @@ goto :eof
 
 :pedestrianway
 echo 			define
-echo 				min-zoom : 16
+echo 				min-zoom : 14
 echo 				line-color : #ee3333
 echo 				line-width : 16:1;17:2
 echo 				line-opacity : 1
@@ -22,18 +23,31 @@ goto :eof
 
 :forestpath
 echo 			define
-echo 				min-zoom : 13
+
+echo 				border-style : none
+echo 				min-zoom : 11
 echo 				line-color : #000000
-echo 				line-width : 1
-echo 				line-opacity : 0.5
 echo 				line-style : dash
+echo 				line-width : 11:1;15.5:2
+echo 			draw : line
 goto :eof
+
+
+:bridleonly
+echo 			define
+echo 				min-zoom : 13
+echo 				line-color : #ff00ff
+echo 				line-width : 2
+;echo 				line-opacity : 0.5
+echo 				line-style : dashdot
+goto :eof
+
 
 :gravelroad
 echo 			define
 echo 				min-zoom : 13
-echo 				line-color : #ffffff
-echo 				line-width : 13:1;15:3;19:5
+echo 				line-color : #bb8844
+echo 				line-width : 9:1;15:4;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 20%%
@@ -42,10 +56,11 @@ goto :eof
 :trackway
 echo 			define
 echo 				min-zoom : 13
-echo 				line-color : #bb8844
-echo 				line-width : 13:1;15:3;19:5
-echo 				border-style : solid
-echo 				border-color : #000000
+echo 				line-color : #885522
+echo 				line-width : 13:1;15:4;19:6
+echo 				line-style : dashdot
+echo 				border-style : none
+echo 				border-color : #885522
 echo 				border-width : 20%%
 goto :eof
 
@@ -73,7 +88,7 @@ goto :eof
 echo 			define
 echo 				min-zoom : 12
 echo 				line-color : #ffffff
-echo 				line-width : 9:1;15:3;19:10
+echo 				line-width : 9:1;15:4;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 30%%
@@ -81,13 +96,13 @@ goto :eof
 
 :unknownroad
 echo 			define
-echo 				min-zoom : 12
+echo 				min-zoom : 13
 echo 				line-color : #cccccc
-echo 				line-style : dot
-echo 				line-width : 9:1;15:2;19:8
+echo 				line-style : solid
+echo 				line-width : 9:1;15:4;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
-echo 				border-width : 20%%
+echo 				border-width : 35%%
 goto :eof
 
 :sub
@@ -115,6 +130,7 @@ echo 		pitch : leisure=pitch
 echo 		protected : leisure=nature_reserve or boundary=protected_area or boundary=national_park
 echo 		waterarea : natural=water OR waterway
 echo properties
+echo 	curved : false
 echo 	map-background-color : #fcfaeb
 echo 	map-sea-color : #65a4d0 
 echo 	text-color : #000000
@@ -229,45 +245,115 @@ echo 		draw : text
 
 
 echo 	target : road
-echo 		for : highway=motorway*
-					call :highspeedroad
-echo 			elsefor : highway=trunk*
-					call :highspeedroad
-echo 			elsefor : highway=primary
-					call :highspeedroad
-echo 			elsefor : highway=secondary* and maxspeed ^>85
-					call :highspeedroad
-echo 			elsefor : highway=secondary and %gravelsurface%
-					call :gravelroad
-echo 			elsefor : highway=secondary and maxspeed ^<60
-					call :bigroad
-echo 			elsefor : highway=secondary and width ^>10
-					call :highspeedroad
-echo 			elsefor : highway=secondary and width ^>=6.5
-					call :bigroad
-echo 			elsefor : highway=secondary and width ^<6.5
-					call :pavedroad
-echo 			elsefor : highway=secondary 
-					call :bigroad
-				
-				
-				
-				;				call :pedestrianway
-;				call :bikeway
-;				call :forestpath
-;				call :trackway
-;				call :gravelroad
-;				call :unknownroad
-echo 		elsefor : highway=unclassified
-				call :pavedroad
-echo 		elsefor : highway=tertiary  or highway=tertiary_link
-				call :pavedroad
-echo 		elsefor : highway=secondary or highway=primary_link
+echo 		for : highway=motorway or highway=motorway_link
+				call :highspeedroad
+echo 		elsefor : highway=trunk or highway=trunk_link
+				call :highspeedroad
+echo 		elsefor : highway=primary or highway=primary_link
+				call :highspeedroad
+
+echo 		elsefor : highway=secondary and maxspeed ^>85
+				call :highspeedroad
+echo 		elsefor : highway=secondary and %softsurface%
+				call :gravelroad
+echo 		elsefor : highway=secondary and maxspeed ^<60
 				call :bigroad
-echo 		elsefor : highway=primary or highway=motorway_link or highway=trunk_link
+echo 		elsefor : highway=secondary and width ^>10
 				call :highspeedroad
-echo 		elsefor : highway=motorway or highway=trunk
+echo 		elsefor : highway=secondary and width ^>=6.5
+				call :bigroad
+echo 		elsefor : highway=secondary and width ^<6.5
+				call :pavedroad
+echo 		elsefor : highway=secondary or highway=secondary_link
+				call :bigroad
+				
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and %hardsurface%
+				call :pavedroad
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and %softsurface%
+				call :gravelroad
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and @isOneOf(smoothness, bad, very_bad, horrible)
+				call :gravelroad
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and @isOneOf(smoothness, excellent, good, intermediate)
+				call :pavedroad
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and @isOneOf(smoothness, very_horrible)
+				call :trackway
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and maxspeed ^>95
 				call :highspeedroad
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and maxspeed ^>75
+				call :pavedroad
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street)
+				call :unknownroad
+			
+echo 		elsefor : highway=track and tracktype=grade1 and %hardsurface%
+				call :pavedroad
+echo 		elsefor : highway=track and tracktype=grade1 and width ^<3
+				call :trackway
+echo 		elsefor : highway=track and tracktype=grade1 
+				call :gravelroad
+echo 		elsefor : highway=track 
+				call :trackway
+
+echo 		elsefor : highway=footway and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
+				call :forestpath
+echo 		elsefor : highway=footway and bicycle=no
+				call :pedestrianway
+echo 		elsefor : highway=footway and bicycle=yes
+				call :bikeway
+echo 		elsefor : highway=footway and trail_visability
+				call :forestpath
+echo 		elsefor : highway=footway and %hardsurface%
+				call :pedestrianway
+echo 		elsefor : highway=footway and %softsurface%
+				call :forestpath
+echo 		elsefor : highway=footway
+				call :pedestrianway
+
+echo 		elsefor : highway=cycleway and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
+				call :forestpath
+echo 		elsefor : highway=cycleway and trail_visability
+				call :forestpath
+echo 		elsefor : highway=cycleway and @isOneOf(smoothness, bad, very_bad, horrible)
+				call :trackway
+echo 		elsefor : highway=cycleway and %softsurface%
+				call :gravelroad
+echo 		elsefor : highway=cycleway
+				call :bikeway
+
+echo 		elsefor : highway=bridleway and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
+				call :forestpath
+echo 		elsefor : highway=bridleway 
+				call :bridleonly
+					
+echo 		elsefor : highway=path and foot=designated and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
+				call :forestpath
+echo 		elsefor : highway=path and foot=designated and bicycle=no
+				call :pedestrianway
+echo 		elsefor : highway=path and foot=designated and %hardsurface%
+				call :pedestrianway
+echo 		elsefor : highway=path and foot=designated and %softsurface%
+				call :forestpath
+echo 		elsefor : highway=path and foot=designated  
+				call :pedestrianway
+
+echo 		elsefor : highway=path and bicycle=designated and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
+				call :forestpath
+echo 		elsefor : highway=path and bicycle=designated and trail_visability
+				call :forestpath
+echo 		elsefor : highway=path and bicycle=designated and @isOneOf(smoothness, bad, very_bad, horrible)
+				call :trackway
+echo 		elsefor : highway=path and bicycle=designated and %softsurface%
+				call :gravelroad
+echo 		elsefor : highway=path and bicycle=designated  
+				call :bikeway
+				
+echo 		elsefor : highway=path and %hardsurface% and bicycle=no
+				call :pedestrianway
+echo 		elsefor : highway=path
+				call :forestpath
+
+					
+
+					
 echo 		else
 echo 			stop
 echo 		for : tunnel=yes
@@ -279,8 +365,8 @@ echo 		draw : line
 echo 	target : barrier
 echo 		define
 echo 			min-zoom : 15
-echo 			line-color : #222222
-echo 			line-width : 0.5		
+echo 			line-color : #666666
+echo 			line-width : 0.2		
 echo 		draw : line
 echo 	target : parking
 echo 		define
