@@ -29,6 +29,7 @@ echo 				min-zoom : 11
 echo 				line-color : #000000
 echo 				line-style : dash
 echo 				line-width : 11:1;15.5:2
+echo 				painting-cycle : 625
 echo 			draw : line
 goto :eof
 
@@ -48,20 +49,42 @@ echo 			define
 echo 				min-zoom : 13
 echo 				line-color : #bb8844
 echo 				line-width : 9:1;15:4;18:10
+echo 				line-style : solid
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 20%%
+echo 				painting-cycle : 650
 goto :eof
 
 :trackway
 echo 			define
 echo 				min-zoom : 13
-echo 				line-color : #885522
-echo 				line-width : 13:1;15:4;19:6
-echo 				line-style : dashdot
-echo 				border-style : none
-echo 				border-color : #885522
+echo 				line-color : #9ade84
+echo 				line-width : 9:1;15:5;18:8
+echo 				line-style : solid
+echo 				fill-opacity : 0.1
+
+echo 				border-style : solid
+echo 				border-color : #333333
 echo 				border-width : 20%%
+echo 				painting-cycle : 640
+echo 			draw : line
+
+echo 			define
+echo 				min-zoom : 13
+echo 				line-color : #ff00ff
+echo 				line-width : 11:1;15:3;18:5
+echo 				line-style : dashdot
+;echo 				min-zoom : 13
+;echo 				line-color : #885522
+;echo 				line-width : 9:1;15:2;18:4
+;echo 				line-style : dot
+;echo 				border-style : none
+;echo 				border-color : #996644
+;echo 				border-width : 20%%
+echo 				painting-cycle : 641
+echo 			draw : line
+
 goto :eof
 
 :highspeedroad
@@ -72,6 +95,7 @@ echo 				line-width : 6:1;11:4;17:10
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 20%%
+echo 				painting-cycle : 690
 goto :eof
 
 :bigroad
@@ -82,6 +106,7 @@ echo 				line-width : 7:2;14:3;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 20%%
+echo 				painting-cycle : 680
 goto :eof
 
 :pavedroad
@@ -92,6 +117,8 @@ echo 				line-width : 9:1;15:4;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 30%%
+echo 				painting-cycle : 670
+
 goto :eof
 
 :unknownroad
@@ -102,7 +129,9 @@ echo 				line-style : solid
 echo 				line-width : 9:1;15:4;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
-echo 				border-width : 35%%
+echo 				border-width : 25%%
+echo 				painting-cycle : 660
+
 goto :eof
 
 :sub
@@ -130,7 +159,6 @@ echo 		pitch : leisure=pitch
 echo 		protected : leisure=nature_reserve or boundary=protected_area or boundary=national_park
 echo 		waterarea : natural=water OR waterway
 echo properties
-echo 	curved : false
 echo 	map-background-color : #fcfaeb
 echo 	map-sea-color : #65a4d0 
 echo 	text-color : #000000
@@ -290,6 +318,8 @@ echo 		elsefor : highway=track and tracktype=grade1 and width ^<3
 				call :trackway
 echo 		elsefor : highway=track and tracktype=grade1 
 				call :gravelroad
+echo 		elsefor : highway=track and @isOneOf(surface, gravel, compacted, fine_gravel)
+				call :gravelroad
 echo 		elsefor : highway=track 
 				call :trackway
 
@@ -438,6 +468,18 @@ echo 			define
 echo 				line-style : none
 echo 				fill-color : #9ade84
 echo 			draw : fill
+echo 		elsefor : landuse=meadow OR natural=scrub OR natural=heath OR natural=grassland
+echo 			define
+echo 				line-style : none
+echo 				fill-color : #9ade84
+echo 				fill-hatch : diagonalcross
+echo 				fill-hatch-color : #caffa9
+echo 			draw : fill				
+echo 		elsefor : landuse=grass 
+echo 			define
+echo 				line-style : none
+echo 				fill-color : #caffa9
+echo 			draw : fill				
 echo 		elsefor : landuse=residential
 echo 			define
 echo 				line-style : none
@@ -460,6 +502,7 @@ echo 				fill-color : #d6d1c8
 echo 			draw : fill
 echo 		else
 echo 			define
+echo 				painting-cycle : 399
 echo 				line-style : none
 echo 				fill-color : #eff4ef
 echo 			draw : fill
