@@ -5,10 +5,10 @@ call :sub >mtbmap-nextgeneration.mrules
 exit /b
 :bikeway
 echo 			define
-echo 				min-zoom : 13
+echo 				min-zoom : 9
 echo 				line-color : #3333dd
 echo 				line-width : 13:1;16:2
-echo 				line-opacity : 1
+echo 				line-opacity : 9:0;13:1
 echo 				line-style : dash
 goto :eof
 
@@ -22,14 +22,71 @@ echo 				line-style : dash
 goto :eof
 
 :forestpath
-echo 			define
-echo 				border-style : none
-echo 				min-zoom : 11
-echo 				line-color : #000000
-echo 				line-style : dash
-echo 				line-width : 11:1;15.5:2
-echo 				painting-cycle : 625
-echo 			draw : line
+echo 			for	: @isOneOf(trail_visibility,bad,no)
+					call :forestpath1
+echo 			elsefor : trail_visibility=intermediate
+					call :forestpath2
+echo 			elsefor : trail_visibility=good
+					call :forestpath3
+echo 			elsefor : trail_visibility=excellent
+					call :forestpath4
+echo 			elsefor : width^<0.49
+					call :forestpath2
+echo 			elsefor : width^<5
+					call :forestpath3
+echo 			elsefor : width^>=1.49
+					call :forestpath4
+echo 			elsefor : highway=track
+					call :forestpath4
+echo 			elsefor : highway=cycleway
+					call :forestpath4
+echo 			elsefor : @isOneOf(surface,paved,concrete,cobblestone,paving_stones,fine_gravel,sett,pebblestone)
+					call :forestpath4
+echo 			elsefor : highway=bridleway
+					call :forestpath4
+echo 			else
+					call :forestpath3
+goto :eof
+
+:forestpath1
+echo 				define
+echo 					border-style : none
+echo 					line-color : #aaaaaa
+echo 					line-opacity : 11:0.3;15:1
+echo 					line-style : dash
+echo 					line-width : 10:0.05;15:0.5;18:2
+echo 					painting-cycle : 625
+echo 				draw : line
+goto :eof
+:forestpath2
+echo 				define
+echo 					border-style : none
+echo 					line-color : #555555
+echo 					line-opacity : 11:0.3;15:1
+echo 					line-style : dash
+echo 					line-width : 10:0.125;15:1;18:3
+echo 					painting-cycle : 625
+echo 				draw : line
+goto :eof
+:forestpath3
+echo 				define
+echo 					border-style : none
+echo 					line-color : #000000
+echo 					line-opacity : 11:0.3;15:1
+echo 					line-style : dash
+echo 					line-width : 10:0.25;15:2;18:5
+echo 					painting-cycle : 625
+echo 				draw : line
+goto :eof
+:forestpath4
+echo 				define
+echo 					border-style : none
+echo 					line-color : #000000
+echo 					line-opacity : 11:0.3;15:1
+echo 					line-style : dash
+echo 					line-width : 10:0.5;15:3;18:10
+echo 					painting-cycle : 625
+echo 				draw : line
 goto :eof
 
 
@@ -116,7 +173,7 @@ goto :eof
 
 :unknownroad
 echo 			define
-echo 				min-zoom : 13
+echo 				min-zoom : 12
 echo 				line-color : #cccccc
 echo 				line-style : solid
 echo 				line-width : 9:1;15:4;18:10
@@ -324,7 +381,7 @@ echo 		elsefor : highway=footway and bicycle=no
 				call :pedestrianway
 echo 		elsefor : highway=footway and bicycle=yes
 				call :bikeway
-echo 		elsefor : highway=footway and trail_visability
+echo 		elsefor : highway=footway and trail_visibility
 				call :forestpath
 echo 		elsefor : highway=footway and %hardsurface%
 				call :pedestrianway
@@ -335,7 +392,7 @@ echo 		elsefor : highway=footway
 
 echo 		elsefor : highway=cycleway and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
 				call :forestpath
-echo 		elsefor : highway=cycleway and trail_visability
+echo 		elsefor : highway=cycleway and trail_visibility
 				call :forestpath
 echo 		elsefor : highway=cycleway and @isOneOf(smoothness, bad, very_bad, horrible)
 				call :trackway
@@ -362,7 +419,7 @@ echo 		elsefor : highway=path and foot=designated
 
 echo 		elsefor : highway=path and bicycle=designated and @isOneOf(mtb:scale,0-,0,0+,1-,1,1+,2-,2,2+,3-,3)
 				call :forestpath
-echo 		elsefor : highway=path and bicycle=designated and trail_visability
+echo 		elsefor : highway=path and bicycle=designated and trail_visibility
 				call :forestpath
 echo 		elsefor : highway=path and bicycle=designated and @isOneOf(smoothness, bad, very_bad, horrible)
 				call :trackway
