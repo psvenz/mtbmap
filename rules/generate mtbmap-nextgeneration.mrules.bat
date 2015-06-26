@@ -7,17 +7,18 @@ exit /b
 echo 			define
 echo 				min-zoom : 9
 echo 				line-color : #3333dd
-echo 				line-width : 13:1;16:2
+echo 				line-width : 13:1;16:3;19:5
 echo 				line-opacity : 9:0;13:1
 echo 				line-style : dash
+echo 				painting-cycle : 695
 goto :eof
 
 :pedestrianway
 echo 			define
-echo 				min-zoom : 14
+echo 				min-zoom : 11
 echo 				line-color : #ee3333
 echo 				line-width : 16:1;17:2
-echo 				line-opacity : 1
+echo 				line-opacity : 11:0;15:1
 echo 				line-style : dash
 goto :eof
 
@@ -29,7 +30,7 @@ echo 			elsefor : trail_visibility=intermediate
 echo 			elsefor : trail_visibility=good
 					call :forestpath3
 echo 			elsefor : trail_visibility=excellent
-					call :forestpath4
+					call :forestpath3
 echo 			elsefor : width^<0.49
 					call :forestpath2
 echo 			elsefor : width^<5
@@ -51,9 +52,9 @@ goto :eof
 :forestpath1
 echo 				define
 echo 					border-style : none
-echo 					line-color : #aaaaaa
+echo 					line-color : #555555
 echo 					line-opacity : 11:0.3;15:1
-echo 					line-style : dash
+echo 					line-style : dashlong
 echo 					line-width : 10:0.05;15:0.5;18:2
 echo 					painting-cycle : 625
 echo 				draw : line
@@ -63,8 +64,8 @@ echo 				define
 echo 					border-style : none
 echo 					line-color : #555555
 echo 					line-opacity : 11:0.3;15:1
-echo 					line-style : dash
-echo 					line-width : 10:0.125;15:1;18:3
+echo 					line-style : dashdot
+echo 					line-width : 10:1;15:1.6;18:3
 echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
@@ -102,38 +103,36 @@ goto :eof
 
 :gravelroad
 echo 			define
-echo 				min-zoom : 13
 echo 				line-color : #bb8844
-;echo 				line-width : 9:1;15:4;18:12
+;echo 				line-width : 10:0.5;15:4;18:12
 echo 				line-style : solid
+echo 				min-zoom : 10
+echo 				line-opacity : 10:0;13:1
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 25%%
+echo 				border-opacity : 10:0;13:1
 echo 				painting-cycle : 650
 goto :eof
 
 :trackway
 echo 			define
-echo 				min-zoom : 13
+echo 				min-zoom : 10
+echo 				line-opacity : 10:0;13:1
+
 echo 				line-color : #bb8844
-echo 				line-width : 9:1;15:3;18:8
+echo 				line-width : 10:0.5;15:3;18:8
 echo 				line-style : solid
-echo 				fill-opacity : 0.1
+echo 				fill-opacity : 10:0;13:1
 
 echo 				border-style : dash
 echo 				border-color : #000000
 echo 				border-width : 20%%
 echo 				painting-cycle : 640
+echo 				border-opacity : 10:0;13:1
 echo 			draw : line
 
-;echo 			define
-;echo 				min-zoom : 13
-;echo 				line-color : #bb8844
-;echo 				line-width : 9:0.8;15:2.4;18:6.4
-;echo 				line-style : solid
-;echo 				border-style : none
-;echo 				painting-cycle : 641
-;echo 			draw : line
+
 
 goto :eof
 
@@ -152,7 +151,7 @@ goto :eof
 echo 			define
 echo 				min-zoom : 7
 echo 				line-color : #eebb55
-echo 				line-width : 7:2;14:3;18:20
+echo 				line-width : 7:0.5;13:5;18:20
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 20%%
@@ -173,10 +172,11 @@ goto :eof
 
 :unknownroad
 echo 			define
-echo 				min-zoom : 12
+echo 				min-zoom : 7
 echo 				line-color : #cccccc
+echo 				line-opacity : 7:0;14:1
 echo 				line-style : solid
-echo 				line-width : 9:1;15:4;18:10
+echo 				line-width : 7:0.5;12:1;15:3;18:10
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 25%%
@@ -227,7 +227,7 @@ echo 				max-zoom : 14
 echo 				font-size : 10:18;13:14
 echo 		elsefor : place=suburb
 echo 			define
-echo 				min-zoom : 13
+echo 				min-zoom : 15
 echo 				max-zoom : 16
 echo 		elsefor : place=town
 echo 			define
@@ -240,7 +240,7 @@ echo 				min-zoom : 14
 echo 				max-zoom : 16
 echo 		elsefor : place=neighbourhood
 echo 			define
-echo 				min-zoom : 14
+echo 				min-zoom : 15
 echo 				max-zoom : 16
 echo 		elsefor : place=locality
 echo 			define
@@ -289,9 +289,25 @@ echo 			min-zoom : 12
 echo 			fill-color : #8c7a6f
 echo 		draw : fill
 echo 	target : $featuretype(area) 
-echo 		for  : landuse
+echo 		for  : landuse=forest or natural=wood
 echo 			define
-echo 				min-zoom : 16
+echo 				min-zoom : 13
+echo 				max-zoom : 14
+echo 				font-size : 16
+echo 			draw : text
+echo 		elsefor  : leisure=nature_reserve or boundary=protected_area or boundary=national_park
+echo 			define
+echo 				min-zoom : 13
+echo 				max-zoom : 15
+echo 				text-halo-color : #eeffee
+echo 				text-halo-width : 120%%
+echo 				text-halo-opacity : 13:0.7;15:0.2
+echo 				font-size : 13
+echo 			draw : text
+echo 		elsefor  : landuse
+echo 			define
+echo 				min-zoom : 15
+echo 				max-zoom : 16
 echo 				font-size : 13
 echo 			draw : text
 echo 		elsefor : leisure=stadium or leisure=park or leisure=playground or leisure=garden or leisure=common
@@ -556,7 +572,7 @@ echo 		else
 echo 			define
 echo 				painting-cycle : 399
 echo 				line-style : none
-echo 				fill-color : #eff4ef
+echo 				fill-color : #eff4df
 echo 			draw : fill
 echo 	target : recreation 
 echo 		define
