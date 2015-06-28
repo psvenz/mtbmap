@@ -199,6 +199,7 @@ echo 		railway : railway=rail
 echo 		bridge : bridge=yes or bridge=viaduct
 echo 		waterway : waterway
 echo 		cliff : natural=cliff
+echo 		mtbroute : relation[type=route AND route=mtb]
 echo 	areas
 echo 		landuse : landuse or natural=wood
 echo 		building : building
@@ -336,6 +337,25 @@ echo 			text-halo-width : 22%%
 echo 			font-family : arial
 echo 			font-size : 11
 echo 		draw : text
+
+echo 	target : $featuretype(line)
+echo 		define
+echo 			min-zoom : 16
+echo 			text-halo-width : 22%%
+echo 			font-family : arial
+echo 			font-size : 11
+echo 		draw : text
+
+echo 	target : mtbroute
+echo 		define
+echo 			min-zoom : 15
+echo 			text-halo-width : 22%%
+echo 			font-family : arial
+echo 			font-size : 14
+echo 			line-color : red
+echo 			painting-cycle : 4000
+echo 		draw : text
+
 
 
 echo 	target : road
