@@ -722,7 +722,7 @@ rules
 			font-size : 3:3;12:12
 			text-color : green
 			font-weight : normal
-			text : @up(name)
+			text : name
 		draw : line
 		define
 			min-zoom : 9
