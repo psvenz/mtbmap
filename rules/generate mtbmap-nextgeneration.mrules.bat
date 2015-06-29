@@ -1,8 +1,28 @@
 @echo off
 set "softsurface=@isOneOf(surface, unpaved, gravel, ground, dirt, grass, sand, compacted, fine_gravel, earth, mud)"
 set "hardsurface=@isOneOf(surface, paved, asphalt, concrete)"
+call :createpython >pythonhelpers.py
 call :sub >mtbmap-nextgeneration.mrules
 exit /b
+
+:createpython
+echo def routename(e):
+echo     str_list = []
+echo     i = 0
+echo     for set in e.tagSets:
+echo          return set.ToString()
+REM echo          return str(dir(set))
+REM echo          return set['name']
+REM echo          i=i+1
+REM echo         if set.hasTag('name'):
+REM echo             if set['route'] == 'mtb':
+REM echo                 str_list.append(set['name'])   
+REM echo     str_list.sort()
+REM echo     return '+'.join(str_list)
+REM echo     return 'hej'
+REM echo     return str(e)
+goto :eof
+
 :bikeway
 echo 			define
 echo 				min-zoom : 9
@@ -96,7 +116,7 @@ echo 			define
 echo 				min-zoom : 13
 echo 				line-color : #ff00ff
 echo 				line-width : 2
-;echo 				line-opacity : 0.5
+REM echo 				line-opacity : 0.5
 echo 				line-style : dashdot
 goto :eof
 
@@ -104,7 +124,7 @@ goto :eof
 :gravelroad
 echo 			define
 echo 				line-color : #bb8844
-;echo 				line-width : 10:0.5;15:4;18:12
+REM echo 				line-width : 10:0.5;15:4;18:12
 echo 				line-style : solid
 echo 				min-zoom : 10
 echo 				line-opacity : 10:0;13:1
@@ -189,6 +209,7 @@ echo // Example of Maperitive rendering rules for OSMTileMachine
 echo.
 echo.
 echo.
+echo import-script:pythonhelpers.py
 echo features
 echo 	points
 echo 		place : place
@@ -200,6 +221,7 @@ echo 		bridge : bridge=yes or bridge=viaduct
 echo 		waterway : waterway
 echo 		cliff : natural=cliff
 echo 		mtbroute : relation[type=route AND route=mtb]
+echo 		cycle route : osmnetwork[type=route]
 echo 	areas
 echo 		landuse : landuse or natural=wood
 echo 		building : building
@@ -220,6 +242,16 @@ echo 	font-family : Clear Sans
 echo 	font-weight : bold
 echo 	topmost-layer : true 
 echo rules
+
+echo 	target : cycle route
+echo 		define
+echo 			line-width : 3
+echo 			line-color : red
+echo 		draw : line
+echo 		define
+echo 			text-func : cycleLabel(e)
+echo 		draw : text
+		
 echo 	target : place
 echo 		for : place=city
 echo 			define
@@ -354,6 +386,7 @@ echo 			font-family : arial
 echo 			font-size : 14
 echo 			line-color : red
 echo 			painting-cycle : 4000
+echo 			text-func : routename(e)
 echo 		draw : text
 
 
@@ -478,7 +511,6 @@ echo 		for : tunnel=yes
 echo 			define
 echo 				line-opacity : 0.3
 echo 				border-opacity : 0.3
-echo //				fill-opacity : 0.3
 echo 		draw : line
 echo 	target : barrier
 echo 		define
