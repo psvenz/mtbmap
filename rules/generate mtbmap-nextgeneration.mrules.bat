@@ -220,8 +220,8 @@ echo 		railway : railway=rail
 echo 		bridge : bridge=yes or bridge=viaduct
 echo 		waterway : waterway
 echo 		cliff : natural=cliff
-echo 		mtbroute : relation[type=route AND route=mtb]
-echo 		cycle route : osmnetwork[type=route]
+echo 		mtbroute : osmnetwork[type=route AND route=mtb]
+echo 		general route : osmnetwork[type=route AND (NOT route=mtb)]
 echo 	areas
 echo 		landuse : landuse or natural=wood
 echo 		building : building
@@ -243,13 +243,9 @@ echo 	font-weight : bold
 echo 	topmost-layer : true 
 echo rules
 
-echo 	target : cycle route
+echo 	target : general route
 echo 		define
-echo 			line-width : 3
-echo 			line-color : red
-echo 		draw : line
-echo 		define
-echo 			text-func : cycleLabel(e)
+echo 			min-zoom : 16
 echo 		draw : text
 		
 echo 	target : place
@@ -380,13 +376,13 @@ echo 		draw : text
 
 echo 	target : mtbroute
 echo 		define
-echo 			min-zoom : 15
+echo 			min-zoom : 13
 echo 			text-halo-width : 22%%
 echo 			font-family : arial
 echo 			font-size : 14
 echo 			line-color : red
 echo 			painting-cycle : 4000
-echo 			text-func : routename(e)
+echo //			text-func : routename(e)
 echo 		draw : text
 
 
