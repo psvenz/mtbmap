@@ -124,7 +124,7 @@ goto :eof
 :gravelroad
 echo 			define
 echo 				line-color : #bb8844
-REM echo 				line-width : 10:0.5;15:4;18:12
+echo 				line-width : 10:0.5;15:4;18:12
 echo 				line-style : solid
 echo 				min-zoom : 10
 echo 				line-opacity : 10:0;13:1
@@ -220,8 +220,9 @@ echo 		railway : railway=rail
 echo 		bridge : bridge=yes or bridge=viaduct
 echo 		waterway : waterway
 echo 		cliff : natural=cliff
-echo 		mtbroute : osmnetwork[type=route AND route=mtb]
-echo 		general route : osmnetwork[type=route AND (NOT route=mtb)]
+echo 		mtbroute : osmnetwork[type=route AND @isOneOf(route,mtb)]
+echo 		bikeroute : osmnetwork[type=route AND @isOneOf(route,bicycle,lcn,ncn,inline_skates)]
+echo 		footroute : osmnetwork[type=route AND (@isOneOf(route,foot,hiking,ski,fitness_trail,walking,running))]
 echo 	areas
 echo 		landuse : landuse or natural=wood
 echo 		building : building
@@ -243,8 +244,9 @@ echo 	font-weight : bold
 echo 	topmost-layer : true 
 echo rules
 
-echo 	target : general route
+echo 	target : footroute
 echo 		define
+echo 			text-color : #cc3333
 echo 			min-zoom : 16
 echo 		draw : text
 		
@@ -287,6 +289,7 @@ echo 		else
 echo 			stop
 echo 		define
 echo 			text-color : #000000
+echo 			min-zoom : 17
 echo 		draw : text
 echo 	target : protected			
 echo 		define
@@ -368,7 +371,7 @@ echo 		draw : text
 
 echo 	target : $featuretype(line)
 echo 		define
-echo 			min-zoom : 16
+echo 			min-zoom : 18
 echo 			text-halo-width : 22%%
 echo 			font-family : arial
 echo 			font-size : 11
@@ -377,12 +380,15 @@ echo 		draw : text
 echo 	target : mtbroute
 echo 		define
 echo 			min-zoom : 13
-echo 			text-halo-width : 22%%
-echo 			font-family : arial
-echo 			font-size : 14
-echo 			line-color : red
+echo 			font-size : 15
+echo 			text-color : #770000
+echo 		draw : text
+
+echo 	target : bikeroute
+echo 		define
+echo 			min-zoom : 14
 echo 			painting-cycle : 4000
-echo //			text-func : routename(e)
+echo 			text-color : #0000ff
 echo 		draw : text
 
 
