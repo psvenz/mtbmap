@@ -69,7 +69,31 @@ echo 			else
 					call :forestpath3
 goto :eof
 
+:mtbscale
+echo 				for : @isOneOf(mtb:scale,0-,0,0+)
+echo 					define
+echo 						line-color : #00aa00
+echo 						line-width : %~1
+echo 					draw : line
+echo 				elsefor : @isOneOf(mtb:scale,1-,1,1+)
+echo 					define
+echo 						line-color : #ffff00
+echo 						line-width : %~1
+echo 					draw : line
+echo 				elsefor : @isOneOf(mtb:scale,2-,2,2+)
+echo 					define
+echo 						line-color : #ff0000
+echo 						line-width : %~1
+echo 					draw : line
+echo 				elsefor : @isOneOf(mtb:scale,3-,3,3+)
+echo 					define
+echo 						line-color : #c300c3
+echo 						line-width : %~1
+echo 					draw : line
+goto :eof
+
 :forestpath1
+					call  :mtbscale "10:0.1;15:1;18:4"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #555555
@@ -80,6 +104,7 @@ echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath2
+					call  :mtbscale "10:2;15:3.2;18:6"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #555555
@@ -90,6 +115,7 @@ echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath3
+					call  :mtbscale "10:0.5;15:4;18:10"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #000000
@@ -100,6 +126,7 @@ echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath4
+					call  :mtbscale "10:1;15:6;18:20"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #000000
@@ -514,6 +541,16 @@ echo 			define
 echo 				line-opacity : 0.3
 echo 				border-opacity : 0.3
 echo 		draw : line
+
+
+echo 	target : mtbroute
+echo 		define
+echo 			min-zoom : 9
+echo 			line-color : #ffffff
+echo 			line-width : 10:1.5;15:9;18:30
+echo 		draw : line
+
+
 echo 	target : barrier
 echo 		define
 echo 			min-zoom : 15
