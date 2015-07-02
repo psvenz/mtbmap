@@ -72,12 +72,12 @@ goto :eof
 :mtbscale
 echo 				for : @isOneOf(mtb:scale,0-,0,0+)
 echo 					define
-echo 						line-color : #00aa00
+echo 						line-color : #1fdd00
 echo 						line-width : %~1
 echo 					draw : line
 echo 				elsefor : @isOneOf(mtb:scale,1-,1,1+)
 echo 					define
-echo 						line-color : #ffff00
+echo 						line-color : #e2e200
 echo 						line-width : %~1
 echo 					draw : line
 echo 				elsefor : @isOneOf(mtb:scale,2-,2,2+)
@@ -115,7 +115,7 @@ echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath3
-					call  :mtbscale "10:0.5;15:4;18:10"
+					call  :mtbscale "10:0.5;15:5;18:11"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #000000
@@ -546,8 +546,28 @@ echo 		draw : line
 echo 	target : mtbroute
 echo 		define
 echo 			min-zoom : 9
-echo 			line-color : #ffffff
-echo 			line-width : 10:1.5;15:9;18:30
+echo 			line-color : #eeeeee
+echo 			line-start-cap : triangle
+REM echo 			line-color : #ffffff
+echo 			line-width : 10:1.95;15:11.7;18:39
+echo 			border-style : solid
+echo 			border-color : #9ade84
+echo 			border-width : 5%%
+echo 		draw : line
+
+
+echo 	target : footroute
+echo 		define
+echo 			min-zoom : 15
+echo 			line-opacity : 0.2
+echo 			line-color : #eeeeee
+echo 			line-start-cap : triangle
+REM echo 			line-color : #ffffff
+echo 			line-width : 10:1.95;15:11.7;18:39
+echo 			border-style : solid
+echo 			border-opacity : 0.25
+echo 			border-color : #9ade84
+echo 			border-width : 5%%
 echo 		draw : line
 
 
@@ -625,7 +645,8 @@ echo 	target : landuse
 echo 		for : landuse=forest OR natural=wood
 echo 			define
 echo 				line-style : none
-echo 				fill-color : #9ade84
+REM echo 				fill-color : #9ade84
+echo 				fill-color : #9ece89
 echo 			draw : fill
 echo 		elsefor : landuse=meadow OR natural=scrub OR natural=heath OR natural=grassland
 echo 			define
