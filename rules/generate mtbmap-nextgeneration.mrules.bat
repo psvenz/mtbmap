@@ -80,6 +80,16 @@ echo 						border-style : solid
 echo 						border-opacity : 1
 echo 						border-width : 10:4;15:6;18:12
 echo 					draw : line
+echo 					define
+echo 						min-zoom : 9
+echo 						max-zoom : 11.9
+echo 						line-opacity : 1
+echo 						painting-cycle : 1000
+echo 						line-color : #4444cc
+echo 						line-width : 2
+echo 						border-style : none
+echo 					draw : line
+
 goto :eof
 
 :mtbscale
@@ -87,6 +97,7 @@ echo 				for : @isOneOf(mtb:scale,0-,0,0+)
 						call :mtbscalebackdrop %~1
 echo 					define
 echo 						min-zoom : 12
+echo 						max-zoom : 25
 echo 						line-color : #1fdd00
 echo 						line-width : %~1
 echo 						line-opacity : 1
@@ -97,6 +108,7 @@ echo 				elsefor : @isOneOf(mtb:scale,1-,1,1+)
 						call :mtbscalebackdrop %~1
 echo 					define
 echo 						min-zoom : 12
+echo 						max-zoom : 25
 echo 						line-color : #e2e200
 echo 						line-opacity : 1
 echo 						border-style : none
@@ -107,7 +119,8 @@ echo 				elsefor : @isOneOf(mtb:scale,2-,2,2+)
 						call :mtbscalebackdrop %~1
 echo 					define
 echo 						min-zoom : 12
-echo 						line-color : #ee2222
+echo 						max-zoom : 25
+echo 						line-color : #ee4444
 echo 						line-opacity : 1
 echo 						border-style : none
 echo 						line-width : %~1
@@ -117,6 +130,7 @@ echo 				elsefor : @isOneOf(mtb:scale,3-,3,3+)
 						call :mtbscalebackdrop %~1
 echo 					define
 echo 						min-zoom : 12
+echo 						max-zoom : 25
 echo 						line-color : #c300c3
 echo 						line-opacity : 1
 echo 						border-style : none
@@ -174,7 +188,7 @@ goto :eof
 :bridleonly
 echo 			define
 echo 				min-zoom : 13
-echo 				line-color : #006600
+echo 				line-color : #009900
 echo 				line-width : 10:0.5;15:3
 echo 				line-style : dashdot
 goto :eof
@@ -592,12 +606,12 @@ echo 			min-zoom : 12
 REM echo 			line-color : #c0e0c0
 echo 			line-color : #9ece89
 echo 			line-start-cap : triangle
-echo 			line-width : 10:7;15:12;18:14
-echo 			line-opacity : 0.7
+echo 			line-width : 10:7;15:12;18:20
+echo 			line-opacity : 0.8
 echo 			border-style : solid
 echo 			border-color : #008800
 echo 			border-width : 18%%
-echo 			painting-cycle : 401
+echo 			painting-cycle : 405
 echo 		draw : line
 echo 		define
 echo 			min-zoom : 9
@@ -612,16 +626,16 @@ echo 		draw : line
 
 echo 	target : footroute
 echo 		define
-echo 			min-zoom : 15
-echo 			line-opacity : 0.2
-echo 			line-color : #eeeeee
+echo 			min-zoom : 14
+REM echo 			line-color : #c0e0c0
+echo 			line-color : #9ece89
 echo 			line-start-cap : triangle
-REM echo 			line-color : #ffffff
-echo 			line-width : 10:1.95;15:11.7;18:39
+echo 			line-width : 10:7;15:12;18:20
+echo 			line-opacity : 0.9
 echo 			border-style : solid
-echo 			border-opacity : 0.25
-echo 			border-color : #9ade84
-echo 			border-width : 5%%
+echo 			border-color : #ee3333
+echo 			border-width : 6%%
+echo 			painting-cycle : 404
 echo 		draw : line
 
 
