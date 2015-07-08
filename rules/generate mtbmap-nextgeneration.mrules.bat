@@ -141,8 +141,8 @@ goto :eof
 :bridleonly
 echo 			define
 echo 				min-zoom : 13
-echo 				line-color : #ff00ff
-echo 				line-width : 2
+echo 				line-color : #006600
+echo 				line-width : 3
 REM echo 				line-opacity : 0.5
 echo 				line-style : dashdot
 goto :eof
@@ -150,7 +150,7 @@ goto :eof
 
 :gravelroad
 echo 			define
-echo 				line-color : #bb8844
+echo 				line-color : #b07f3e
 echo 				line-width : 10:0.5;15:4;18:12
 echo 				line-style : solid
 echo 				min-zoom : 10
@@ -167,7 +167,7 @@ echo 			define
 echo 				min-zoom : 10
 echo 				line-opacity : 10:0;13:1
 
-echo 				line-color : #bb8844
+echo 				line-color : #b07f3e
 echo 				line-width : 10:0.5;15:3;18:8
 echo 				line-style : solid
 echo 				fill-opacity : 10:0;13:1
@@ -207,9 +207,12 @@ goto :eof
 
 :pavedroad
 echo 			define
-echo 				min-zoom : 12
+echo 				min-zoom : 10
 echo 				line-color : #ffffff
 echo 				line-width : 9:1;15:4;18:13
+echo 				line-opacity : 10:0;13:1
+echo 				fill-opacity : 10:0;13:1
+echo 				border-opacity : 10:0;13:1
 echo 				border-style : solid
 echo 				border-color : #000000
 echo 				border-width : 30%%
@@ -408,12 +411,20 @@ echo 	target : mtbroute
 echo 		define
 echo 			min-zoom : 13
 echo 			font-size : 15
+echo 			text-orientation : flow
+echo 			text-color : #770000
+echo 		draw : text
+echo 		define
+echo 			min-zoom : 12
+echo 			max-zoom : 12.9
+echo 			font-size : 15
+echo 			text-orientation : fixed
 echo 			text-color : #770000
 echo 		draw : text
 
 echo 	target : bikeroute
 echo 		define
-echo 			min-zoom : 14
+echo 			min-zoom : 12
 echo 			painting-cycle : 4000
 echo 			text-color : #0000ff
 echo 		draw : text
@@ -545,14 +556,21 @@ echo 		draw : line
 
 echo 	target : mtbroute
 echo 		define
-echo 			min-zoom : 9
-echo 			line-color : #eeeeee
+echo 			min-zoom : 12
+echo 			line-color : #c0e0c0
 echo 			line-start-cap : triangle
-REM echo 			line-color : #ffffff
-echo 			line-width : 10:1.95;15:11.7;18:39
+echo 			line-width : 10:7;15:11.7;18:39
 echo 			border-style : solid
-echo 			border-color : #9ade84
-echo 			border-width : 5%%
+echo 			border-color : #007700
+echo 			border-width : 8%%
+echo 		draw : line
+echo 		define
+echo 			min-zoom : 9
+echo 			max-zoom : 11.9
+echo 			painting-cycle : 1001
+echo 			line-color : #aa0000
+echo 			line-width : 2
+echo 			border-style : none
 echo 		draw : line
 
 
