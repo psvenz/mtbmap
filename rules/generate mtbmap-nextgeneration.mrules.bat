@@ -69,70 +69,103 @@ echo 			else
 					call :forestpath3
 goto :eof
 
+:mtbscalebackdrop
+echo 					define
+echo 						painting-cycle : 398
+echo 						line-color : #990099
+echo 						line-width : 0.1
+echo 						line-opacity : 0
+echo 						border-color : #caffa9
+echo 						border-style : solid
+echo 						border-opacity : 1
+echo 						border-width : 10:4;15:6;18:12
+echo 					draw : line
+goto :eof
+
 :mtbscale
 echo 				for : @isOneOf(mtb:scale,0-,0,0+)
+						call :mtbscalebackdrop %~1
 echo 					define
+echo 						min-zoom : 12
 echo 						line-color : #1fdd00
 echo 						line-width : %~1
+echo 						line-opacity : 1
+echo 						border-style : none	
+echo 						painting-cycle : 624
 echo 					draw : line
 echo 				elsefor : @isOneOf(mtb:scale,1-,1,1+)
+						call :mtbscalebackdrop %~1
 echo 					define
+echo 						min-zoom : 12
 echo 						line-color : #e2e200
+echo 						line-opacity : 1
+echo 						border-style : none
 echo 						line-width : %~1
+echo 						painting-cycle : 624
 echo 					draw : line
 echo 				elsefor : @isOneOf(mtb:scale,2-,2,2+)
+						call :mtbscalebackdrop %~1
 echo 					define
-echo 						line-color : #ff0000
+echo 						min-zoom : 12
+echo 						line-color : #ee2222
+echo 						line-opacity : 1
+echo 						border-style : none
 echo 						line-width : %~1
+echo 						painting-cycle : 624
 echo 					draw : line
 echo 				elsefor : @isOneOf(mtb:scale,3-,3,3+)
+						call :mtbscalebackdrop %~1
 echo 					define
+echo 						min-zoom : 12
 echo 						line-color : #c300c3
+echo 						line-opacity : 1
+echo 						border-style : none
 echo 						line-width : %~1
+echo 						painting-cycle : 624
 echo 					draw : line
 goto :eof
 
 :forestpath1
-					call  :mtbscale "10:0.1;15:1;18:4"
+					call  :mtbscale "10:1;15:1"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #555555
 echo 					line-opacity : 11:0.3;15:1
 echo 					line-style : dashlong
-echo 					line-width : 10:0.05;15:0.5;18:2
+echo 					line-width : 10:0.05;15:0.5
 echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath2
-					call  :mtbscale "10:2;15:3.2;18:6"
+					call  :mtbscale "10:3;15:5"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #555555
 echo 					line-opacity : 11:0.3;15:1
 echo 					line-style : dashdot
-echo 					line-width : 10:1;15:1.6;18:3
+echo 					line-width : 10:1;15:1.6
 echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath3
-					call  :mtbscale "10:0.5;15:5;18:11"
+					call  :mtbscale "10:3;15:6"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #000000
 echo 					line-opacity : 11:0.3;15:1
 echo 					line-style : dash
-echo 					line-width : 10:0.25;15:2;18:5
+echo 					line-width : 10:0.25;15:2
 echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
 :forestpath4
-					call  :mtbscale "10:1;15:6;18:20"
+					call  :mtbscale "10:3;15:7"
 echo 				define
 echo 					border-style : none
 echo 					line-color : #000000
 echo 					line-opacity : 11:0.3;15:1
 echo 					line-style : dash
-echo 					line-width : 10:0.5;15:3;18:10
+echo 					line-width : 10:0.5;15:3
 echo 					painting-cycle : 625
 echo 				draw : line
 goto :eof
@@ -142,8 +175,7 @@ goto :eof
 echo 			define
 echo 				min-zoom : 13
 echo 				line-color : #006600
-echo 				line-width : 3
-REM echo 				line-opacity : 0.5
+echo 				line-width : 10:0.5;15:3
 echo 				line-style : dashdot
 goto :eof
 
@@ -557,18 +589,22 @@ echo 		draw : line
 echo 	target : mtbroute
 echo 		define
 echo 			min-zoom : 12
-echo 			line-color : #c0e0c0
+REM echo 			line-color : #c0e0c0
+echo 			line-color : #9ece89
 echo 			line-start-cap : triangle
-echo 			line-width : 10:7;15:11.7;18:39
+echo 			line-width : 10:7;15:12;18:14
+echo 			line-opacity : 0.7
 echo 			border-style : solid
-echo 			border-color : #007700
-echo 			border-width : 8%%
+echo 			border-color : #008800
+echo 			border-width : 18%%
+echo 			painting-cycle : 401
 echo 		draw : line
 echo 		define
 echo 			min-zoom : 9
 echo 			max-zoom : 11.9
+echo 			line-opacity : 1
 echo 			painting-cycle : 1001
-echo 			line-color : #aa0000
+echo 			line-color : #006600
 echo 			line-width : 2
 echo 			border-style : none
 echo 		draw : line
