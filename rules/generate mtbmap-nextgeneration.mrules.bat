@@ -603,9 +603,9 @@ echo 	target : mtbroute
 echo 		define
 echo 			min-zoom : 12
 REM echo 			line-color : #c0e0c0
-echo 			line-color : #9ece89
+echo 			line-color : #90d382
 echo 			line-start-cap : triangle
-echo 			line-width : 10:7;15:12;18:20
+echo 			line-width : 10:7;15:12;18:21
 echo 			line-opacity : 0.8
 echo 			border-style : solid
 echo 			border-color : #008800
@@ -627,9 +627,9 @@ echo 	target : footroute
 echo 		define
 echo 			min-zoom : 14
 REM echo 			line-color : #c0e0c0
-echo 			line-color : #9ece89
+echo 			line-color : #a4c083
 echo 			line-start-cap : triangle
-echo 			line-width : 10:7;15:12;18:20
+echo 			line-width : 10:5;15:9;18:20
 echo 			line-opacity : 0.9
 echo 			border-style : solid
 echo 			border-color : #ee3333
