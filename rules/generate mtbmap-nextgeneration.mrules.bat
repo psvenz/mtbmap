@@ -285,7 +285,6 @@ echo // Example of Maperitive rendering rules for OSMTileMachine
 echo.
 echo.
 echo.
-echo import-script:pythonhelpers.py
 echo features
 echo 	points
 echo 		place : place
