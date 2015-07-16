@@ -328,7 +328,7 @@ echo 		draw : text
 echo 	target : place
 echo 		for : place=city
 echo 			define
-echo 				min-zoom : 7
+echo 				min-zoom : 11
 echo 				max-zoom : 14
 echo 				font-size : 10:18;13:14
 echo 		elsefor : place=suburb
@@ -364,7 +364,6 @@ echo 		else
 echo 			stop
 echo 		define
 echo 			text-color : #000000
-echo 			min-zoom : 17
 echo 		draw : text
 echo 	target : protected			
 echo 		define
