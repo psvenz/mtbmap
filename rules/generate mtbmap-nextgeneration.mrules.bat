@@ -498,21 +498,21 @@ echo 		elsefor : highway=secondary and width ^<6.5
 echo 		elsefor : highway=secondary or highway=secondary_link
 				call :bigroad
 				
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and %hardsurface%
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and %hardsurface%
 				call :pavedroad
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and %softsurface%
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and %softsurface%
 				call :gravelroad
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and @isOneOf(smoothness, bad, very_bad, horrible)
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and @isOneOf(smoothness, bad, very_bad, horrible)
 				call :gravelroad
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and @isOneOf(smoothness, excellent, good, intermediate)
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and @isOneOf(smoothness, excellent, good, intermediate)
 				call :pavedroad
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and @isOneOf(smoothness, very_horrible)
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and @isOneOf(smoothness, very_horrible)
 				call :trackway
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and maxspeed ^>95
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and maxspeed ^>95
 				call :highspeedroad
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street) and maxspeed ^>75
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road) and maxspeed ^>75
 				call :pavedroad
-echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street)
+echo 		elsefor : @isOneOf(highway, tertiary, unclassified, service, residential, living_street, road)
 				call :unknownroad
 			
 echo 		elsefor : highway=track and tracktype=grade1 and %hardsurface%
