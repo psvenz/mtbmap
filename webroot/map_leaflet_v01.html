@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>mtbmap.se - openstreetmap based mountain bike map</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">	
+	 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="leaflet-locatecontrol-dist/L.Control.Locate.mapbox.min.css" />
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
+      <link rel="stylesheet" href="leaflet-locatecontrol-dist/L.Control.Locate.ie.min.css"/>
+      <![endif]-->
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+		}
+		html, body, #map {
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<div id="map"></div>
+	 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js">
+	</script>
+	    <script src="leaflet-locatecontrol-dist/L.Control.Locate.min.js" ></script>
+	<script>
+		var map = L.map('map').setView([59.33, 18.1322], 10);
+
+
+		L.tileLayer('http://tiles.mtbmap.se/{z}/{x}/{y}.png', {
+			minZoom: 0, maxZoom: 17,
+			attribution: 'Map data © OpenStreetMap contributors. Generated with <a href="http://maperitive.net">Maperitive</a> using <a href="https://github.com/psvenz/OSMTileMachine">OSMTileMachine</a>'
+		}).addTo(map);
+
+				// add location control to global name space for testing only
+		// on a production site, omit the "lc = "!
+		lc = L.control.locate({
+			follow: true,
+			strings: {
+				title: "Show me where I am, yo!"
+			}
+		}).addTo(map);
+
+		map.on('startfollowing', function() {
+			map.on('dragstart', lc._stopFollowing, lc);
+		}).on('stopfollowing', function() {
+			map.off('dragstart', lc._stopFollowing, lc);
+		});
+		
+	</script>
+</body>
+</html>
