@@ -468,7 +468,7 @@ echo 		draw : text
 
 echo 	target : bikeroute
 echo 		define
-echo 			min-zoom : 12
+echo 			min-zoom : 17
 echo 			painting-cycle : 4000
 echo 			text-color : #0000ff
 echo 		draw : text
