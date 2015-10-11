@@ -1,6 +1,0 @@
-use-script-dir
-clear-map
-use-ruleset location=G:\development\mtbmap.se\maplegend\bikemap_rules.txt
-set-setting name=map.coastline.mode value=strict
-load-source G:\development\mtbmap.se\maplegend\maplegend.osm
-zoom 14.2

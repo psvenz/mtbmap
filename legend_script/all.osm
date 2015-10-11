@@ -1,0 +1,118 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' upload='true' generator='JOSM'>
+
+  <node id='-2001' action='modify' visible='true' lat='30.01' lon='1.01' />
+  <node id='-2002' action='modify' visible='true' lat='30.01' lon='1.02' />
+  <way id='-2000' action='modify' visible='true'>
+    <nd ref='-2001' />
+    <nd ref='-2002' />
+    <tag k='highway' v='track' />
+  </way>
+
+
+  <node id='-1001' action='modify' visible='true' lat='30.02' lon='1.01' />
+  <node id='-1002' action='modify' visible='true' lat='30.02' lon='1.02' />
+  <way id='-1000' action='modify' visible='true'>
+    <nd ref='-1001' />
+    <nd ref='-1002' />
+    <tag k='highway' v='path' />
+    <tag k='surface' v='paved' />
+  </way>
+
+  <node id='-3001' action='modify' visible='true' lat='30.03' lon='1.01' />
+  <node id='-3002' action='modify' visible='true' lat='30.03' lon='1.02' />
+  <way id='-3000' action='modify' visible='true'>
+    <nd ref='-3001' />
+    <nd ref='-3002' />
+    <tag k='highway' v='path' />
+    <tag k='width' v='1' />
+  </way>
+
+  <node id='-4001' action='modify' visible='true' lat='30.04' lon='1.01' />
+  <node id='-4002' action='modify' visible='true' lat='30.04' lon='1.02' />
+  <way id='-4000' action='modify' visible='true'>
+    <nd ref='-4001' />
+    <nd ref='-4002' />
+    <tag k='highway' v='path' />
+    <tag k='width' v='0.2' />
+  </way>
+
+  <node id='-5001' action='modify' visible='true' lat='30.05' lon='1.01' />
+  <node id='-5002' action='modify' visible='true' lat='30.05' lon='1.02' />
+  <way id='-5000' action='modify' visible='true'>
+    <nd ref='-5001' />
+    <nd ref='-5002' />
+    <tag k='highway' v='path' />
+    <tag k='trail_visibility' v='bad' />
+  </way>
+
+  <node id='-6001' action='modify' visible='true' lat='30.06' lon='1.01' />
+  <node id='-6002' action='modify' visible='true' lat='30.06' lon='1.02' />
+  <way id='-6000' action='modify' visible='true'>
+    <nd ref='-6001' />
+    <nd ref='-6002' />
+    <tag k='highway' v='cycleway' />
+  </way>
+
+  <node id='-7001' action='modify' visible='true' lat='30.07' lon='1.01' />
+  <node id='-7002' action='modify' visible='true' lat='30.07' lon='1.02' />
+  <way id='-7000' action='modify' visible='true'>
+    <nd ref='-7001' />
+    <nd ref='-7002' />
+    <tag k='highway' v='footway' />
+  </way>
+
+  <node id='-8001' action='modify' visible='true' lat='30.08' lon='1.01' />
+  <node id='-8002' action='modify' visible='true' lat='30.08' lon='1.02' />
+  <way id='-8000' action='modify' visible='true'>
+    <nd ref='-8001' />
+    <nd ref='-8002' />
+    <tag k='highway' v='unclassified' />
+    <tag k='surface' v='unpaved' />
+  </way>
+
+  <node id='-9001' action='modify' visible='true' lat='30.09' lon='1.01' />
+  <node id='-9002' action='modify' visible='true' lat='30.09' lon='1.02' />
+  <way id='-9000' action='modify' visible='true'>
+    <nd ref='-9001' />
+    <nd ref='-9002' />
+    <tag k='highway' v='path' />
+    <tag k='mtb:scale' v='0' />
+    <tag k='surface' v='paved' />
+
+  </way>
+
+    <node id='-10001' action='modify' visible='true' lat='30.10' lon='1.01' />
+  <node id='-10002' action='modify' visible='true' lat='30.10' lon='1.02' />
+  <way id='-10000' action='modify' visible='true'>
+    <nd ref='-10001' />
+    <nd ref='-10002' />
+    <tag k='highway' v='path' />
+    <tag k='mtb:scale' v='1' />
+    <tag k='surface' v='paved' />
+
+  </way>
+
+      <node id='-11001' action='modify' visible='true' lat='30.11' lon='1.01' />
+  <node id='-11002' action='modify' visible='true' lat='30.11' lon='1.02' />
+  <way id='-11000' action='modify' visible='true'>
+    <nd ref='-11001' />
+    <nd ref='-11002' />
+    <tag k='highway' v='path' />
+    <tag k='mtb:scale' v='2' />
+    <tag k='surface' v='paved' />
+
+  </way>
+
+      <node id='-12001' action='modify' visible='true' lat='30.12' lon='1.01' />
+  <node id='-12002' action='modify' visible='true' lat='30.12' lon='1.02' />
+  <way id='-12000' action='modify' visible='true'>
+    <nd ref='-12001' />
+    <nd ref='-12002' />
+    <tag k='highway' v='path' />
+    <tag k='mtb:scale' v='3' />
+    <tag k='surface' v='paved' />
+  </way>
+
+
+</osm>

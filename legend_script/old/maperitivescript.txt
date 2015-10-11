@@ -1,0 +1,6 @@
+use-script-dir
+clear-map
+use-ruleset location=mtbmap-nextgeneration.mrules
+set-setting name=map.coastline.mode value=strict
+load-source maplegend.osm
+zoom 14
