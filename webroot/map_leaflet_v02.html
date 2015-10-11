@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title>mtbmap.se - openstreetmap based mountain bike map</title>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.5/leaflet.js"></script>
+	<script src="shramov-leaflet-plugins-1.3.11/control/Permalink.js"></script>
+	<script src="shramov-leaflet-plugins-1.3.11/control/Permalink.Marker.js"></script>
+	<script src="shramov-leaflet-plugins-1.3.11/control/Permalink.Layer.js"></script>
+</head>
+<body>
+	<div style="width:100%; height:100%" id="map"></div>
+<script type='text/javascript'>
+var map = new L.Map('map', {center: new L.LatLng(67.6755, 33.936), zoom: 10});
+var mtbmaplayer = new L.TileLayer('http://tiles.mtbmap.se/{z}/{x}/{y}.png', {
+			minZoom: 0, maxZoom: 17,
+			attribution: 'Map data © OpenStreetMap contributors. Generated with <a href="http://maperitive.net">Maperitive</a> using <a href="https://github.com/psvenz/OSMTileMachine">OSMTileMachine</a>'
+			});
+map.addLayer(mtbmaplayer);
+var hydda = L.tileLayer('http://{s}.tile.openstreetmap.se/hydda/full/{z}/{x}/{y}.png', {
+	attribution: 'Tiles courtesy of <a href="http://openstreetmap.se/" target="_blank">OpenStreetMap Sweden</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+});
+var layers = new L.Control.Layers({'mtbmap.se':mtbmaplayer, "Hydda":hydda});
+map.addControl(layers);
+map.addControl(new L.Control.Permalink({text: 'Permalink', layers: layers}));
+</script>
+ 
+</body>
+</html>

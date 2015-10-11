@@ -12,6 +12,10 @@
       <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.ie.css" />
       <link rel="stylesheet" href="leaflet-locatecontrol-dist/L.Control.Locate.ie.min.css"/>
       <![endif]-->
+	
+	<script src="shramov-leaflet-plugins-1.3.11/control/Permalink.js"></script>
+	<script src="shramov-leaflet-plugins-1.3.11/control/Permalink.Marker.js"></script>
+	<script src="shramov-leaflet-plugins-1.3.11/control/Permalink.Layer.js"></script>
 	<style>
 		body {
 			padding: 0;
@@ -50,6 +54,11 @@
 		}).on('stopfollowing', function() {
 			map.off('dragstart', lc._stopFollowing, lc);
 		});
+
+		var layers = new L.Control.Layers({'OSM':osm, "Hydda":hydda});
+		map.addControl(layers);
+		map.addControl(new L.Control.Permalink({text: 'Permalink', layers: layers}));
+
 		
 	</script>
 </body>
