@@ -51,11 +51,11 @@ echo 			elsefor : trail_visibility=good
 					call :forestpath3
 echo 			elsefor : trail_visibility=excellent
 					call :forestpath3
-echo 			elsefor : width^<0.49
+echo 			elsefor : width^<0.5
 					call :forestpath2
-echo 			elsefor : width^<5
+echo 			elsefor : width^<1.5
 					call :forestpath3
-echo 			elsefor : width^>=1.49
+echo 			elsefor : width^>=1.5
 					call :forestpath4
 echo 			elsefor : highway=track
 					call :forestpath4
@@ -335,6 +335,19 @@ echo 		elsefor : place=suburb
 echo 			define
 echo 				min-zoom : 15
 echo 				max-zoom : 16
+
+REM used for map legend only
+echo 		elsefor : place=text
+echo 			define
+echo 				min-zoom : 10
+echo 				max-zoom : 20
+echo 				text-color : #000000
+echo 				text-halo-color : #ffffff
+echo 				text-halo-width : 40%%
+echo 				font-size : 11
+echo 				font-family : Arial
+echo 				font-weight : bold
+echo 				text-max-width : 20
 echo 		elsefor : place=town
 echo 			define
 echo 				min-zoom : 11
