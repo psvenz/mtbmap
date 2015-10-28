@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<osm version='0.6' upload='true' generator='JOSM'>
+  <node id='-1406802' action='modify' visible='true' lat='58.31119356683' lon='15.66262156378' />
+  <node id='-1406801' action='modify' visible='true' lat='58.31123740217' lon='15.55746495811' />
+  <way id='-1406803' action='modify' visible='true'>
+    <nd ref='-1406801' />
+    <nd ref='-1406802' />
+  </way>
+  <relation id='-1406814' action='modify' visible='true'>
+    <member type='way' ref='-1406803' role='' />
+    <tag k='route' v='mtb' />
+    <tag k='type' v='route' />
+  </relation>
+</osm>
