@@ -1,6 +1,6 @@
 use-script-dir
 clear-map
-use-ruleset location=mtbmap-nextgeneration.mrules
+use-ruleset location=../../package/rules/mtbmap-nextgeneration.mrules
 set-setting name=map.coastline.mode value=strict
 set-setting name=map.decoration.grid value=false
 set-setting name=map.decoration.scale value=false
@@ -10,48 +10,48 @@ zoom 15
 
 set-geo-bounds 1.011 , 30.0085 , 1.019 , 30.0115
 set-print-bounds-geo
-export-bitmap file=track.png
+export-bitmap file=../../package/webroot/about/track.png
 
 set-geo-bounds 1.011 , 30.0185 , 1.019 , 30.0215
 set-print-bounds-geo
-export-bitmap file=trail1.png
+export-bitmap file=../../package/webroot/about/trail1.png
 
 set-geo-bounds 1.011 , 30.0285 , 1.019 , 30.0315
 set-print-bounds-geo
-export-bitmap file=trail2.png
+export-bitmap file=../../package/webroot/about/trail2.png
 
 set-geo-bounds 1.011 , 30.0385 , 1.019 , 30.0415
 set-print-bounds-geo
-export-bitmap file=trail3.png
+export-bitmap file=../../package/webroot/about/trail3.png
 
 set-geo-bounds 1.011 , 30.0485 , 1.019 , 30.0515
 set-print-bounds-geo
-export-bitmap file=trail4.png
+export-bitmap file=../../package/webroot/about/trail4.png
 
 set-geo-bounds 1.011 , 30.0585 , 1.019 , 30.0615
 set-print-bounds-geo
-export-bitmap file=cycleway.png
+export-bitmap file=../../package/webroot/about/cycleway.png
 
 set-geo-bounds 1.011 , 30.0685 , 1.019 , 30.0715
 set-print-bounds-geo
-export-bitmap file=pedestrian.png
+export-bitmap file=../../package/webroot/about/pedestrian.png
 
 set-geo-bounds 1.011 , 30.0785 , 1.019 , 30.0815
 set-print-bounds-geo
-export-bitmap file=unpavedroad.png
+export-bitmap file=../../package/webroot/about/unpavedroad.png
 
 set-geo-bounds 1.011 , 30.0885 , 1.019 , 30.0915
 set-print-bounds-geo
-export-bitmap file=mtbscale0.png
+export-bitmap file=../../package/webroot/about/mtbscale0.png
 
 set-geo-bounds 1.011 , 30.0985 , 1.019 , 30.1015
 set-print-bounds-geo
-export-bitmap file=mtbscale1.png
+export-bitmap file=../../package/webroot/about/mtbscale1.png
 
 set-geo-bounds 1.011 , 30.1085 , 1.019 , 30.1115
 set-print-bounds-geo
-export-bitmap file=mtbscale2.png
+export-bitmap file=../../package/webroot/about/mtbscale2.png
 
 set-geo-bounds 1.011 , 30.1185 , 1.019 , 30.1215
 set-print-bounds-geo
-export-bitmap file=mtbscale3.png
+export-bitmap file=../../package/webroot/about/mtbscale3.png

@@ -1,8 +1,8 @@
 @echo off
 set "softsurface=@isOneOf(surface, unpaved, gravel, ground, dirt, grass, sand, compacted, fine_gravel, earth, mud)"
 set "hardsurface=@isOneOf(surface, paved, asphalt, concrete)"
-call :createpython >pythonhelpers.py
-call :sub >mtbmap-nextgeneration.mrules
+call :createpython >../../package/rules/pythonhelpers.py
+call :sub >../../package/rules/mtbmap-nextgeneration.mrules
 exit /b
 
 :createpython
