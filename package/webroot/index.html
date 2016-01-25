@@ -30,7 +30,7 @@ map.addLayer(mtbmaplayer);
 var layers = new L.Control.Layers({'mtbmap.se':mtbmaplayer});
 map.addControl(layers);
 map.addControl(new L.Control.Permalink({text: 'Permalink', layers: layers}));
-map.addControl( new L.Control.Gps({autoActive:true}) );//inizialize control
+map.addControl( new L.Control.Gps({autoActive:false, setView: false}) );//inizialize control
 </script>
  
 </body>
