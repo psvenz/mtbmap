@@ -1,5 +1,66 @@
 <html>
+	<head>
+		<script type="text/javascript">
+
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-38818475-1']);
+	  _gaq.push(['_setDomainName', 'mtbmap.se']);
+	  _gaq.push(['_trackPageview']);
+
+	  (function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+		</script>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/sv_SE/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+	</head>
 	<body>
+	<b>Description:</b><br>
+	<a href="/">The map</a> is a Mountainbike map based on <a href="http://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a> data. <br>
+	<br>
+	See <a href="http://wiki.openstreetmap.org/wiki/Key:mtb:scale">mtb:scale</a> and <a href="http://wiki.openstreetmap.org/wiki/Mountainbike">mountainbike</a> on openstreetmap wiki.
+	<p>
+	Please contribute with better data and add your favourite mountainbike trails to openstreetmap! If you haven't contributed to Openstreetmap before start <a href="http://wiki.openstreetmap.org/wiki/Beginners%27_guide">here</a>.
+	
+	<p>Site and <a href="https://github.com/psvenz/mtbmap/tree/master/source/rules">custom style sheet</a> is developed by <a href="http://www.openstreetmap.org/user/zvenzzon">zvenzzon</a>.
+	<p>
+Update interval: ~monthly or worse =)
+<p>
+	
+	Software used:<br>
+	<ul>
+	<li>Maperitive</li>
+	<li>OSMTileMachine</li>
+	<li>Leaflet</li>
+	<li>osmosis</li>
+	<li>osmconvert</li>
+	<li>osmupdate</li>
+	<li>wget</li>
+	<li>nginx</li>
+	<li>stefanocudini-leaflet-gps</li>
+	<li>shramov-leaflet-plugins</li>
+	</ul>
+	
+	<p>
+	<b>License information:</b><br>
+	mtbmap layer is a derived work from openstreetmap data. (C) Openstreetmap Contributors. More information can be found under <a href="http://www.openstreetmap.org/copyright">Copyright information.</a><br>
+	stefanocudini-leaflet-gps (C) Stefano Cudini<br>	
+	shramov-leaflet-plugins Copyright (c) 2011-2015, Pavel Shramov, Bruno Bergot. <a href="../shramov-leaflet-plugins-1.3.11/LICENSE">Full license information</a><br>
+<p>	
+
+	<br><br>
+
+	
+		<b>Map Legend:</b><br>
 		<table cellspacing=0 cellpadding=0>
 		<tr><td>Trail Wide</td><td><img src=trail1.png></tr>
 		<tr><td>Trail Normal</td><td><img src=trail2.png></tr>
@@ -14,5 +75,18 @@
 		<tr><td>Cycleway</td><td><img src=cycleway.png></tr>
 		<tr><td>Pedestrian way</td><td><img src=pedestrian.png></tr>
 		</table>
-	</body>
+<p><b> Social:</b><br>
+	<div class="fb-like" data-href="http://www.facebook.com/MTBmap.se" data-send="false" data-layout="box_count" data-width="450" data-show-faces="false"></div>
+	</div>
+<p>
+	The operation of this site requires a lot of time, dedicated rendering computer hardware, hard disks, electricity, bandwidth, domain name registration etc. Please donate so the site can be kept online. Thanks!
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="MDT4HEGJ8Z49A">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/sv_SE/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+
+		</body>
 </html>
