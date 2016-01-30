@@ -104,7 +104,7 @@
 
   </way>
 
-      <node id='-12001' action='modify' visible='true' lat='30.12' lon='1.01' />
+  <node id='-12001' action='modify' visible='true' lat='30.12' lon='1.01' />
   <node id='-12002' action='modify' visible='true' lat='30.12' lon='1.02' />
   <way id='-12000' action='modify' visible='true'>
     <nd ref='-12001' />
@@ -114,5 +114,98 @@
     <tag k='surface' v='paved' />
   </way>
 
+
+  <node id='-13001' action='modify' visible='true' lat='30.13' lon='1.01' />
+  <node id='-13002' action='modify' visible='true' lat='30.13' lon='1.02' />
+  <way id='-13000' action='modify' visible='true'>
+    <nd ref='-13001' />
+    <nd ref='-13002' />
+    <tag k='highway' v='bridleway' />
+  </way>
+
+
+
+  <node id='-14001' action='modify' visible='true' lat='30.14' lon='1.01' />
+  <node id='-14002' action='modify' visible='true' lat='30.14' lon='1.02' />
+  <way id='-14000' action='modify' visible='true'>
+    <nd ref='-14001' />
+    <nd ref='-14002' />
+    <tag k='highway' v='motorway' />
+    <tag k='maxspeed' v='200' />
+  </way>
+
+
+
+  <node id='-15001' action='modify' visible='true' lat='30.15' lon='1.01' />
+  <node id='-15002' action='modify' visible='true' lat='30.15' lon='1.02' />
+  <way id='-15000' action='modify' visible='true'>
+    <nd ref='-15001' />
+    <nd ref='-15002' />
+    <tag k='highway' v='secondary' />
+  </way>
+
+  
+
+  <node id='-16001' action='modify' visible='true' lat='30.16' lon='1.01' />
+  <node id='-16002' action='modify' visible='true' lat='30.16' lon='1.02' />
+  <way id='-16000' action='modify' visible='true'>
+    <nd ref='-16001' />
+    <nd ref='-16002' />
+    <tag k='highway' v='unclassified' />
+    <tag k='surface' v='asphalt' />
+  </way>
+
+
+
+    <node id='-17001' action='modify' visible='true' lat='30.17' lon='1.01' />
+  <node id='-17002' action='modify' visible='true' lat='30.17' lon='1.02' />
+  <way id='-17000' action='modify' visible='true'>
+    <nd ref='-17001' />
+    <nd ref='-17002' />
+    <tag k='highway' v='road' />
+  </way>
+
+
+    <node id='-18001' action='modify' visible='true' lat='30.18' lon='1.01' />
+  <node id='-18002' action='modify' visible='true' lat='30.18' lon='1.02' />
+  <way id='-18000' action='modify' visible='true'>
+    <nd ref='-18001' />
+    <nd ref='-18002' />
+    <tag k='railway' v='rail' />
+  </way>
+
+
+  
+    <node id='-19001' action='modify' visible='true' lat='30.19' lon='1.01' />
+  <node id='-19002' action='modify' visible='true' lat='30.19' lon='1.02' />
+  <way id='-19000' action='modify' visible='true'>
+    <nd ref='-19001' />
+    <nd ref='-19002' />
+    <tag k='highway' v='path' />
+    <tag k='surface' v='unpaved' />
+  </way>
+  <relation id='-19003' action='modify' visible='true'>
+	<member type='way' ref='-19000' role=''/>
+	<tag k='type' v='route' />
+	<tag k='route' v='mtb' />
+  </relation>
+  
+
+
+      <node id='-20001' action='modify' visible='true' lat='30.20' lon='1.01' />
+  <node id='-20002' action='modify' visible='true' lat='30.20' lon='1.02' />
+  <way id='-20000' action='modify' visible='true'>
+    <nd ref='-20001' />
+    <nd ref='-20002' />
+    <tag k='highway' v='path' />
+    <tag k='surface' v='unpaved' />
+
+  </way>
+  <relation id='-20003' action='modify' visible='true'>
+	<member type='way' ref='-20000' role=''/>
+	<tag k='type' v='route' />
+	<tag k='route' v='foot' />
+  </relation>
+  
 
 </osm>

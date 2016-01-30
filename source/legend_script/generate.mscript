@@ -8,50 +8,84 @@ set-setting name=map.decoration.attribution value=false
 load-source all.osm
 zoom 15
 
-set-geo-bounds 1.011 , 30.0085 , 1.019 , 30.0115
+set-geo-bounds 1.011 , 30.0093 , 1.019 , 30.0107
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/track.png
 
-set-geo-bounds 1.011 , 30.0185 , 1.019 , 30.0215
+set-geo-bounds 1.011 , 30.0193 , 1.019 , 30.0207
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/trail1.png
 
-set-geo-bounds 1.011 , 30.0285 , 1.019 , 30.0315
+set-geo-bounds 1.011 , 30.0293 , 1.019 , 30.0307
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/trail2.png
 
-set-geo-bounds 1.011 , 30.0385 , 1.019 , 30.0415
+set-geo-bounds 1.011 , 30.0393 , 1.019 , 30.0407
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/trail3.png
 
-set-geo-bounds 1.011 , 30.0485 , 1.019 , 30.0515
+set-geo-bounds 1.011 , 30.0493 , 1.019 , 30.0507
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/trail4.png
 
-set-geo-bounds 1.011 , 30.0585 , 1.019 , 30.0615
+set-geo-bounds 1.011 , 30.1993 , 1.019 , 30.2007
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/routefoot.png
+
+
+set-geo-bounds 1.011 , 30.0593 , 1.019 , 30.0607
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/cycleway.png
 
-set-geo-bounds 1.011 , 30.0685 , 1.019 , 30.0715
+set-geo-bounds 1.011 , 30.0693 , 1.019 , 30.0707
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/pedestrian.png
 
-set-geo-bounds 1.011 , 30.0785 , 1.019 , 30.0815
+set-geo-bounds 1.011 , 30.0793 , 1.019 , 30.0807
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/unpavedroad.png
 
-set-geo-bounds 1.011 , 30.0885 , 1.019 , 30.0915
+set-geo-bounds 1.011 , 30.0893 , 1.019 , 30.0907
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/mtbscale0.png
 
-set-geo-bounds 1.011 , 30.0985 , 1.019 , 30.1015
+set-geo-bounds 1.011 , 30.0993 , 1.019 , 30.1007
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/mtbscale1.png
 
-set-geo-bounds 1.011 , 30.1085 , 1.019 , 30.1115
+set-geo-bounds 1.011 , 30.1093 , 1.019 , 30.1107
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/mtbscale2.png
 
-set-geo-bounds 1.011 , 30.1185 , 1.019 , 30.1215
+set-geo-bounds 1.011 , 30.1193 , 1.019 , 30.1207
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/mtbscale3.png
+
+set-geo-bounds 1.011 , 30.1293 , 1.019 , 30.1307
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/bridleway.png
+
+set-geo-bounds 1.011 , 30.1393 , 1.019 , 30.1407
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/highspeedroad.png
+
+set-geo-bounds 1.011 , 30.1493 , 1.019 , 30.1507
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/majorroad.png
+
+set-geo-bounds 1.011 , 30.1593 , 1.019 , 30.1607
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/pavedroad.png
+
+set-geo-bounds 1.011 , 30.1693 , 1.019 , 30.1707
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/unknownroad.png
+
+set-geo-bounds 1.011 , 30.1793 , 1.019 , 30.1807
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/railway.png
+
+set-geo-bounds 1.011 , 30.1893 , 1.019 , 30.1907
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/routemtb.png
+
