@@ -6,7 +6,7 @@ set-setting name=map.decoration.grid value=false
 set-setting name=map.decoration.scale value=false
 set-setting name=map.decoration.attribution value=false
 load-source all.osm
-zoom 15
+zoom 16
 
 set-geo-bounds 1.011 , 30.0093 , 1.019 , 30.0107
 set-print-bounds-geo
@@ -28,9 +28,7 @@ set-geo-bounds 1.011 , 30.0493 , 1.019 , 30.0507
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/trail4.png
 
-set-geo-bounds 1.011 , 30.1993 , 1.019 , 30.2007
-set-print-bounds-geo
-export-bitmap file=../../package/webroot/about/routefoot.png
+
 
 
 set-geo-bounds 1.011 , 30.0593 , 1.019 , 30.0607
@@ -89,3 +87,51 @@ set-geo-bounds 1.011 , 30.1893 , 1.019 , 30.1907
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/routemtb.png
 
+set-geo-bounds 1.011 , 30.1993 , 1.019 , 30.2007
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/routefoot.png
+
+set-geo-bounds 1.011 , 30.2093 , 1.019 , 30.2107
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/forest.png
+
+set-geo-bounds 1.011 , 30.2193 , 1.019 , 30.2207
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/lowveg.png
+
+set-geo-bounds 1.011 , 30.2293 , 1.019 , 30.2307
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/grass.png
+
+set-geo-bounds 1.011 , 30.2393 , 1.019 , 30.2407
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/residential.png
+
+
+set-geo-bounds 1.011 , 30.2493 , 1.019 , 30.2507
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/commercial.png
+
+set-geo-bounds 1.011 , 30.2593 , 1.019 , 30.2607
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/industrial.png
+
+set-geo-bounds 1.011 , 30.2693 , 1.019 , 30.2707
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/farm.png
+
+set-geo-bounds 1.011 , 30.2793 , 1.019 , 30.2807
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/protected.png
+
+set-geo-bounds 1.011 , 30.2893 , 1.019 , 30.2907
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/recreation.png
+
+set-geo-bounds 1.011 , 30.2993 , 1.019 , 30.3007
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/cliff.png
+
+set-geo-bounds 1.011 , 30.3093 , 1.019 , 30.3107
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/otherland.png

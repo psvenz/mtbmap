@@ -207,5 +207,146 @@
 	<tag k='route' v='foot' />
   </relation>
   
+  <node id='-21001' action='modify' visible='true' lat='30.2106' lon='1.0111' />
+  <node id='-21002' action='modify' visible='true' lat='30.2106' lon='1.0189' />
+  <node id='-21003' action='modify' visible='true' lat='30.2094' lon='1.0189' />
+  <node id='-21004' action='modify' visible='true' lat='30.2094' lon='1.0111' />
+  <way id='-21000' action='modify' visible='true'>
+    <nd ref='-21001' />
+    <nd ref='-21002' />
+    <nd ref='-21003' />
+    <nd ref='-21004' />
+    <nd ref='-21001' />
+    <tag k='landuse' v='forest' />
+  </way>
+
+
+    <node id='-22001' action='modify' visible='true' lat='30.2206' lon='1.0111' />
+  <node id='-22002' action='modify' visible='true' lat='30.2206' lon='1.0189' />
+  <node id='-22003' action='modify' visible='true' lat='30.2194' lon='1.0189' />
+  <node id='-22004' action='modify' visible='true' lat='30.2194' lon='1.0111' />
+  <way id='-22000' action='modify' visible='true'>
+    <nd ref='-22001' />
+    <nd ref='-22002' />
+    <nd ref='-22003' />
+    <nd ref='-22004' />
+    <nd ref='-22001' />
+    <tag k='landuse' v='meadow' />
+  </way>
+
+  
+    <node id='-23001' action='modify' visible='true' lat='30.2306' lon='1.0111' />
+  <node id='-23002' action='modify' visible='true' lat='30.2306' lon='1.0189' />
+  <node id='-23003' action='modify' visible='true' lat='30.2294' lon='1.0189' />
+  <node id='-23004' action='modify' visible='true' lat='30.2294' lon='1.0111' />
+  <way id='-23000' action='modify' visible='true'>
+    <nd ref='-23001' />
+    <nd ref='-23002' />
+    <nd ref='-23003' />
+    <nd ref='-23004' />
+    <nd ref='-23001' />
+    <tag k='landuse' v='grass' />
+  </way>
+
+      <node id='-24001' action='modify' visible='true' lat='30.2406' lon='1.0111' />
+  <node id='-24002' action='modify' visible='true' lat='30.2406' lon='1.0189' />
+  <node id='-24003' action='modify' visible='true' lat='30.2394' lon='1.0189' />
+  <node id='-24004' action='modify' visible='true' lat='30.2394' lon='1.0111' />
+  <way id='-24000' action='modify' visible='true'>
+    <nd ref='-24001' />
+    <nd ref='-24002' />
+    <nd ref='-24003' />
+    <nd ref='-24004' />
+    <nd ref='-24001' />
+    <tag k='landuse' v='residential' />
+  </way>
+  
+  <node id='-25001' action='modify' visible='true' lat='30.2506' lon='1.0111' />
+  <node id='-25002' action='modify' visible='true' lat='30.2506' lon='1.0189' />
+  <node id='-25003' action='modify' visible='true' lat='30.2494' lon='1.0189' />
+  <node id='-25004' action='modify' visible='true' lat='30.2494' lon='1.0111' />
+  <way id='-25000' action='modify' visible='true'>
+    <nd ref='-25001' />
+    <nd ref='-25002' />
+    <nd ref='-25003' />
+    <nd ref='-25004' />
+    <nd ref='-25001' />
+    <tag k='landuse' v='commercial' />
+  </way>
+  
+  <node id='-26001' action='modify' visible='true' lat='30.2606' lon='1.0111' />
+  <node id='-26002' action='modify' visible='true' lat='30.2606' lon='1.0189' />
+  <node id='-26003' action='modify' visible='true' lat='30.2594' lon='1.0189' />
+  <node id='-26004' action='modify' visible='true' lat='30.2594' lon='1.0111' />
+  <way id='-26000' action='modify' visible='true'>
+    <nd ref='-26001' />
+    <nd ref='-26002' />
+    <nd ref='-26003' />
+    <nd ref='-26004' />
+    <nd ref='-26001' />
+    <tag k='landuse' v='industrial' />
+  </way>
+
+  <node id='-27001' action='modify' visible='true' lat='30.2706' lon='1.0111' />
+  <node id='-27002' action='modify' visible='true' lat='30.2706' lon='1.0189' />
+  <node id='-27003' action='modify' visible='true' lat='30.2694' lon='1.0189' />
+  <node id='-27004' action='modify' visible='true' lat='30.2694' lon='1.0111' />
+  <way id='-27000' action='modify' visible='true'>
+    <nd ref='-27001' />
+    <nd ref='-27002' />
+    <nd ref='-27003' />
+    <nd ref='-27004' />
+    <nd ref='-27001' />
+    <tag k='landuse' v='farmland' />
+  </way>
+
+
+  <node id='-28001' action='modify' visible='true' lat='30.2806' lon='1.0111' />
+  <node id='-28002' action='modify' visible='true' lat='30.2806' lon='1.0189' />
+  <node id='-28003' action='modify' visible='true' lat='30.2794' lon='1.0189' />
+  <node id='-28004' action='modify' visible='true' lat='30.2794' lon='1.0111' />
+  <way id='-28000' action='modify' visible='true'>
+    <nd ref='-28001' />
+    <nd ref='-28002' />
+    <nd ref='-28003' />
+    <nd ref='-28004' />
+    <nd ref='-28001' />
+    <tag k='leisure' v='nature_reserve' />
+  </way>
+
+  <node id='-29001' action='modify' visible='true' lat='30.2906' lon='1.0111' />
+  <node id='-29002' action='modify' visible='true' lat='30.2906' lon='1.0189' />
+  <node id='-29003' action='modify' visible='true' lat='30.2894' lon='1.0189' />
+  <node id='-29004' action='modify' visible='true' lat='30.2894' lon='1.0111' />
+  <way id='-29000' action='modify' visible='true'>
+    <nd ref='-29001' />
+    <nd ref='-29002' />
+    <nd ref='-29003' />
+    <nd ref='-29004' />
+    <nd ref='-29001' />
+    <tag k='leisure' v='park' />
+  </way>
+  
+  
+    <node id='-30001' action='modify' visible='true' lat='30.30' lon='1.01' />
+  <node id='-30002' action='modify' visible='true' lat='30.30' lon='1.02' />
+  <way id='-30000' action='modify' visible='true'>
+    <nd ref='-30001' />
+    <nd ref='-30002' />
+    <tag k='natural' v='cliff' />
+  </way>
+
+    <node id='-31001' action='modify' visible='true' lat='30.3106' lon='1.0111' />
+  <node id='-31002' action='modify' visible='true' lat='30.3106' lon='1.0189' />
+  <node id='-31003' action='modify' visible='true' lat='30.3094' lon='1.0189' />
+  <node id='-31004' action='modify' visible='true' lat='30.3094' lon='1.0111' />
+  <way id='-31000' action='modify' visible='true'>
+    <nd ref='-31001' />
+    <nd ref='-31002' />
+    <nd ref='-31003' />
+    <nd ref='-31004' />
+    <nd ref='-31001' />
+    <tag k='landuse' v='notspecified' />
+  </way>
 
 </osm>
