@@ -135,3 +135,7 @@ export-bitmap file=../../package/webroot/about/cliff.png
 set-geo-bounds 1.011 , 30.3093 , 1.019 , 30.3107
 set-print-bounds-geo
 export-bitmap file=../../package/webroot/about/otherland.png
+
+set-geo-bounds 1.011 , 30.3193 , 1.019 , 30.3207
+set-print-bounds-geo
+export-bitmap file=../../package/webroot/about/water.png

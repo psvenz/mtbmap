@@ -349,4 +349,17 @@
     <tag k='landuse' v='notspecified' />
   </way>
 
+      <node id='-32001' action='modify' visible='true' lat='30.3206' lon='1.0111' />
+  <node id='-32002' action='modify' visible='true' lat='30.3206' lon='1.0189' />
+  <node id='-32003' action='modify' visible='true' lat='30.3194' lon='1.0189' />
+  <node id='-32004' action='modify' visible='true' lat='30.3194' lon='1.0111' />
+  <way id='-32000' action='modify' visible='true'>
+    <nd ref='-32001' />
+    <nd ref='-32002' />
+    <nd ref='-32003' />
+    <nd ref='-32004' />
+    <nd ref='-32001' />
+    <tag k='natural' v='water' />
+  </way>
+
 </osm>
