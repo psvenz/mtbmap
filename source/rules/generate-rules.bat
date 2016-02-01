@@ -768,5 +768,9 @@ echo 			draw : fill
 echo 	target : recreation 
 echo 		define
 echo 			line-style : none
-echo 			fill-color : #caff99
+echo 			fill-color : #000000
+echo 			fill-opacity : 0.3
+echo 			fill-hatch : cross
+echo 			fill-hatch-color : #caff99
+echo 			fill-hatch-opacity : 1
 echo 		draw : fill
