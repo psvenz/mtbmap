@@ -18750,5 +18750,9 @@ rules
 	target : recreation 
 		define
 			line-style : none
-			fill-color : #caff99
+			fill-color : #000000
+			fill-opacity : 0.3
+			fill-hatch : cross
+			fill-hatch-color : #caff99
+			fill-hatch-opacity : 1
 		draw : fill
